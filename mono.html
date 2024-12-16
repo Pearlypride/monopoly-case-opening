@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monopoly Case Opening</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .case {
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            display: inline-block;
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .case:hover {
+            transform: scale(1.05);
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .card-img {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Open Your Monopoly Case</h1>
+        <div id="case1" class="case" style="background-image: url('https://i.imgur.com/vfyt3AO.png');"></div>
+        <div id="case2" class="case" style="background-image: url('https://i.imgur.com/2OcZr4j.jpeg');"></div>
+        <button class="button" onclick="openCase()">Open Case</button>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function openCase() {
+            const result = document.getElementById('result');
+
+            // Define possible rewards with image URLs
+            const rewards = [
+                { name: 'Card 1: Boardwalk', img: 'https://i.imgur.com/vfyt3AO.png' },
+                { name: 'Card 2: Park Place', img: 'https://i.imgur.com/2OcZr4j.jpeg' },
+                { name: 'Card 3: Go to Jail', img: 'https://i.imgur.com/PocNuTy.jpeg' },
+                { name: 'Card 4: Community Chest', img: 'https://i.imgur.com/9VKoaob.jpeg' },
+                { name: 'Card 5: Chance', img: 'https://i.imgur.com/vfyt3AO.png' }
+            ];
+
+            // Pick a random reward
+            const randomReward = rewards[Math.floor(Math.random() * rewards.length)];
+
+            // Display the reward with the card image
+            result.innerHTML = `You got: <br><strong>${randomReward.name}</strong><br><img src="${randomReward.img}" class="card-img">`;
+        }
+    </script>
+</body>
+</html>
